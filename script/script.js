@@ -29,6 +29,7 @@ if (checkFromHome == false) {
   //test
 }
 
+//SMOOTH SCROLL UP
 function arrowUp() {
   document.body.scrollTop = 0 //BUAT SAFARI
   document.documentElement.scrollTop = 0; //BUAT CHROME DKK
@@ -112,7 +113,7 @@ if (arr.articles[num].urlToImage == null) {
   
 }
 
-  description = document.createTextNode(arr.articles[num].description);
+  description = document.createTextNode(arr.articles[num].content);
   linkText = document.createTextNode("Link To Source")
   
   link1.appendChild(linkText)
@@ -129,3 +130,6 @@ function deleteElement(params) {
     wrapper.innerHTML = "";
   }
 }
+$(window).load(function(){
+  $('.loader').fadeOut();
+});
