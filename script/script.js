@@ -130,6 +130,3 @@ function deleteElement(params) {
     wrapper.innerHTML = "";
   }
 }
-$(window).load(function(){
-  $('.loader').fadeOut();
-});

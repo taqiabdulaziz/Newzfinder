@@ -34,13 +34,10 @@
 
     </div>
   </nav>
-
-
-
-
   <!-- BODY -->
 
-
+  <div id="coverScreen"  class="LockOn">
+  </div>
   <div class="background valign-wrapper blue darken-4">
     <div class="container">
       <div class="row">
@@ -90,7 +87,11 @@
     </div>
   </footer>
 
- 
+  <script type="text/javascript">
+    $(window).on('load', function () {
+$("#coverScreen").hide();
+});
+    </script>
   <script type="text/javascript" src="script/script.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
 
