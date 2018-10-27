@@ -25,13 +25,19 @@
 </head>
 
 <body>
+  <div id="coverScreen" class="LockOn">
+  </div>
+
+  <!-- SEARCH NAV BAR -->
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper z-depth-1 blue darken-4">
-        <form>
+        <form method="GET">
           <div class="input-field">
-            <input id="search" type="search" required>
+            <input id="search" type="search" required placeholder="Search" aria-label="Saerch news" name="text" onsubmit="click()">
+            
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <input type="submit" value="Submit" id="submitBtn" style="visibility:hidden">
             <i class="material-icons">close</i>
           </div>
         </form>
@@ -67,10 +73,39 @@
       <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
     </ul>
   </div>
- <script>
- window.scrollTop(100)
+  <!-- Modal Trigger -->
+  
 
- </script>
+  <!-- Modal Trigger -->
+  
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>404 News not found</h4>
+      <p>Berita tidak ditemukan, sekarang saatnya mengembalikan kamu ke halaman awal..</p>
+    </div>
+    <div class="modal-footer">
+      <a href="link()" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4>Please wait...</h4>
+        <p>mengalihkan kamu ke halaman berita</p>
+      </div>
+      <div class="modal-footer">
+        <a href="link()" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+  
+
+<script> 
+
+
+ 
+  </script>  
   <script type="text/javascript" src="script/script.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
 

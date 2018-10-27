@@ -4,8 +4,32 @@ var submitData;
 var xhttp = new XMLHttpRequest();
 var arr;
 var checkFromHome = false;
+var search = document.getElementById("search");
+$(".modal").modal();
+if (document.getElementById("search").value != "") {
+  console.log(document.getElementById("search").value);
+}
 
+document.getElementById("search").addEventListener(
+  "submit",
+  function(e) {
+    windows.location.href = "index.html";
+    click();
+  },
+  false
+);
 
+function click() {
+  submitData = document.getElementById("search").value;
+  window.location.href = "search.html?" + submitData;
+  url =
+    "https://newsapi.org/v2/everything?q=" +
+    "awkarin" +
+    "&apiKey=553ba9189dc8497d94184f651eb212ea";
+  load(url);
+}
+
+//SUBMIT HALAMAN PERTAMA
 function submitAction(params) {
   deleteElement();
   submitData = document.getElementById("first_name").value;
@@ -20,25 +44,24 @@ if (checkFromHome == false) {
   url =
     "https://newsapi.org/v2/everything?q=" +
     parent.document.URL.substring(
-      parent.document.URL.indexOf("?") + 1,
+      parent.document.URL.indexOf("=") + 1,
       parent.document.URL.length
     ) +
     "&apiKey=553ba9189dc8497d94184f651eb212ea";
   load(url);
   checkFromHome = true;
-  //test
 }
 
 //SMOOTH SCROLL UP
 function arrowUp() {
-  document.body.scrollTop = 0 //BUAT SAFARI
+  document.body.scrollTop = 0; //BUAT SAFARI
   document.documentElement.scrollTop = 0; //BUAT CHROME DKK
 }
 
 //PASSING DATA DARI HALAMAN UTAMA KE HALAMAN PENCARIAN
 function passData(params) {
   submitData = document.getElementById("first_name1").value;
-  window.location.href = "search.html?" + submitData;
+  window.location.href = "search.html?text=" + submitData;
   url =
     "https://newsapi.org/v2/everything?q=" +
     "awkarin" +
@@ -56,9 +79,16 @@ function load(url, callback) {
       for (let i = 0; i < arr.articles.length; i++) {
         addElement(arr, i);
       }
+      if (arr.articles.length < 5 == true) {
+        $("#modal1").modal("open");
+
+        setTimeout(function() {
+          window.location.href = 'index.html'
+        }, 3000);
+      }
     }
   };
-  
+
   xhr.open("GET", url, true);
   xhr.send("");
 }
@@ -102,21 +132,21 @@ function addElement(arr, num) {
   newDiv6.appendChild(desc);
   newDiv5.appendChild(newDiv7);
   newDiv7.appendChild(link1);
-
-  link1.href = arr.articles[num].url
-
-if (arr.articles[num].urlToImage == null) {
-  img1.src = "asset/placeholder.jpeg"
-} else {
-  imgSrc = arr.articles[num].urlToImage;
-  img1.src = imgSrc;
   
-}
+link1.href = arr.articles[num].url
+
+  if (arr.articles[num].urlToImage == null) {
+    img1.src = "asset/placeholder.jpeg";
+  } else {
+    imgSrc = arr.articles[num].urlToImage;
+    img1.src = imgSrc;
+  }
 
   description = document.createTextNode(arr.articles[num].content);
-  linkText = document.createTextNode("Link To Source")
-  
-  link1.appendChild(linkText)
+
+  linkText = document.createTextNode("Link To Source");
+
+  link1.appendChild(linkText);
   desc.appendChild(description);
 
   var x = document.getElementById("wrapper1");
@@ -130,3 +160,10 @@ function deleteElement(params) {
     wrapper.innerHTML = "";
   }
 }
+$(window).on("load", function() {
+  $("#coverScreen").hide();
+});
+
+//initialize all modals
+
+

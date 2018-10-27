@@ -23,20 +23,17 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 </head>
 
+<!-- BODY -->
 <body>
-  
   <nav>
     <div class="nav-wrapper z-depth-2 indigo darken-4">
       <a href="#" class="brand-logo center">NewzFinder!</a>
 
     </div>
   </nav>
-  <!-- BODY -->
-
-  <div id="coverScreen"  class="LockOn">
+  <div id="coverScreen" class="LockOn">
   </div>
   <div class="background valign-wrapper blue darken-4">
     <div class="container">
@@ -49,8 +46,6 @@
       </div>
       <a class="waves-effect waves-light btn-large" id="submitBtn" onclick="passData()">Search</a>
     </div>
-
-
   </div>
 
   <div id="wrapper">
@@ -59,6 +54,7 @@
   </div>
 
 
+  <!-- FOOTER -->
   <footer class="page-footer indigo darken-4">
     <div class="container">
       <div class="row">
@@ -87,11 +83,15 @@
     </div>
   </footer>
 
+
+  <!-- SCRIPT SECTION -->
   <script type="text/javascript">
     $(window).on('load', function () {
-$("#coverScreen").hide();
-});
-    </script>
+      $("#coverScreen").hide();
+    });
+
+    
+  </script>
   <script type="text/javascript" src="script/script.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
 
